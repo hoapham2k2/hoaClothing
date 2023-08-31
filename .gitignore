@@ -1,0 +1,16 @@
+/.vscode
+
+/apis/identity-service/bin/
+/apis/identity-service/obj/
+/apis/identity-service/packages/
+/apis/identity-service/riderModule.iml
+/apis/identity-service/_ReSharper.Caches/
+
+/apis/product-service/bin/
+/apis/product-service/obj/
+/apis/product-service/packages/
+/apis/product-service/riderModule.iml
+/apis/product-service/_ReSharper.Caches/
+
+
+/mysql/
