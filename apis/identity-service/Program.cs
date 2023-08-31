@@ -32,7 +32,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(
             options.Password.RequireLowercase = true; //yêu cầu password có chữ thường
             options.Password.RequireUppercase = true; //yêu cầu password có chữ hoa
         })
-    .AddEntityFrameworkStores<AppDbContext>();
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders(); //cấu hình token provider cho identity framework core
 
 //for jwtBearer
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

@@ -1,5 +1,9 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using product_service.Data;
+using product_service.Interfaces;
+using product_service.MappingProfiles;
+using product_service.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +18,18 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//for auto mapper
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MappingProfile());
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
+//for inversion of control container (IoC)
+builder.Services.AddScoped<IProduct, ProductRepository>();
+builder.Services.AddScoped<ICategory, CategoryRepository>();
 
 
 var app = builder.Build();
