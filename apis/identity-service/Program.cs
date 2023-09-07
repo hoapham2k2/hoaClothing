@@ -1,6 +1,12 @@
+using System.Security.Claims;
 using System.Text;
+using AutoMapper;
+using identity_service.AutoMapper;
 using identity_service.Data;
 using identity_service.Models;
+using identity_service.Repositories.AuthRepository;
+using identity_service.Repositories.JwtRepository;
+using identity_service.Repositories.RoleRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -15,40 +21,68 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//for entity framework core
-builder.Services.AddDbContext<AppDbContext>(options =>
+
+//For Entity Framework
+builder.Services.AddDbContext<ApplicationDbContext>(options=>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SQLServerConnection") ?? throw new InvalidOperationException()));
+
+// For Authentication JWT Token Bearer Configuration
+builder.Services.AddIdentity<AppUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+var mySymmetricKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])); 
+builder.Services.AddSingleton(mySymmetricKey); 
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        
+    })
+    .AddJwtBearer(options =>
+    {
+        options.SaveToken = true; //to save token in HttpContext for later use (e.g. for refresh token)
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            RequireExpirationTime = true, //RequireExpirationTime: yêu cầu token phải có claim exp (hạn của token)
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = mySymmetricKey,
+            ClockSkew = TimeSpan.Zero, //ClockSkew: thời gian cho phép trễ của token so với server
+            RoleClaimType = ClaimTypes.Role //RoleClaimType: claim type dùng để lưu role của user    
+        };
+    });
+
+//For AutoMapper
+var mapperConfig = new MapperConfiguration(mc =>
 {
-    Console.WriteLine($"---> Configuring DbContext,connection string: {builder.Configuration.GetConnectionString("DefaultConnection")}");
-    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection"));
+    mc.AddProfile(new MappingProfile());
+});
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
+//for DI of Repositories
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<IJwtRepository, JwtRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+
+
+//for cors
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000", "client:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
 });
 
 
-//for identity framework core
-builder.Services.AddIdentity<AppUser, IdentityRole>(
-        options =>
-        {
-            options.User.RequireUniqueEmail = true; //yêu cầu email là duy nhất trong hệ thống 
-            options.Password.RequireDigit = true; //yêu cầu password có chữ số
-            options.Password.RequireLowercase = true; //yêu cầu password có chữ thường
-            options.Password.RequireUppercase = true; //yêu cầu password có chữ hoa
-        })
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders(); //cấu hình token provider cho identity framework core
 
-//for jwtBearer
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.RequireHttpsMetadata= false; //yêu cầu https là false để dùng http
-        options.SaveToken = true; //lưu token vào httpcontext để dùng cho các request sau này
-        options.TokenValidationParameters = new TokenValidationParameters() //cấu hình token validation parameters 
-        {
-            ValidateLifetime = true, //validate lifetime là true để token có thời hạn sử dụng 
-            ValidateIssuerSigningKey = true, //validate issuer signing key là true để validate key 
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])) //key
-        };
-    });
-    
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -57,15 +91,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/", () => "This is Identity Server")
-    .RequireAuthorization("ApiScope"); 
+app.MapGet("/", () => "Hello, This is Identity Service!");
 
 app.Run();

@@ -1,0 +1,86 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    z-index: var(--navbar-z-index);
+
+}
+
+
+.header__wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 100%;
+    align-items: center;
+    justify-items: center;
+
+    /*font*/
+    font-size: 1.3rem;
+    font-weight: 500;
+
+}
+
+.header__left {
+    /* grid chia 12 cột thì chiến 2 cột */
+    grid-column: 1 / span 2;
+    width: 100%;
+    height: 100%;
+    /*background-color: red;*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1rem;
+
+}
+
+.header__left__icon {
+    cursor: pointer;
+}
+
+.header__center {
+    /* chiếm 8 cột */
+    grid-column: 3 / span 8;
+    width: 100%;
+    height: 100%;
+    /*background-color: blue;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.header__right {
+    /* chiếm 2 cột */
+    grid-column: 11 / span 2;
+    width: 100%;
+    height: 100%;
+    /*background-color: green;*/
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.header__right__icon {
+    cursor: pointer;
+}
+
+/* mobile first */
+@media screen and (min-width: 768px) {
+    .header {
+        height: var(--navbar-height);
+    }
+
+    .header__wrapper {
+        color: #ffffff;
+        font-size: 1.5rem;
+    }
+
+}
+

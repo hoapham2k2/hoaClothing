@@ -14,6 +14,14 @@ public class MappingProfile : Profile
   CreateMap<Category, CategoryReadDto>();
   CreateMap<CategoryCreateDto, Category>();
   
+  //mapping cho Product
+  CreateMap<Product, ProductReadDto>();
+  CreateMap<ProductCreateDto, Product>();
+  CreateMap<ProductUpdateDto, Product>();
+  
+  //mapping cho product image uri
+  CreateMap<ImageUri, ImageUriReadDto>();
+  CreateMap<ImageUriCreateDto, ImageUri>();
  }
 
 }

@@ -1,0 +1,77 @@
+:root {
+    /*for z-index*/
+    --z-fixed: 100;
+    --z-sticky: 10;
+    --z-default: 1;
+    --z-background: 0;
+
+    /*color schemes*/
+    --background-color: #fff;
+    --text-color: #000;
+
+    /*for navbar*/
+    --navbar-height: 5rem;
+    --navbar-background: #fff;
+    --navbar-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    --navbar-text-color: #000;
+    --navbar-z-index: var(--z-fixed);
+
+}
+
+[data-theme="dark"] {
+    --background-color: #000;
+    --text-color: #fff;
+
+    --navbar-background: #000;
+    --navbar-text-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-family: "Roboto", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body {
+}
+
+/*for browser scrollbar*/
+body::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+}
+
+
+/*for swiper carousel*/
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #000000;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using product_service.Dtos;
 using product_service.Interfaces;
 
 namespace product_service.Controllers
@@ -22,6 +25,7 @@ namespace product_service.Controllers
         }
         
         [HttpGet]
+        [Authorize (Policy = "User")]
         [Route("products")]
         public async Task<IActionResult> GetProducts()
         {
@@ -45,7 +49,29 @@ namespace product_service.Controllers
             return Ok(categories);
         }
         
+        [HttpGet]
+        [Route("{categoryId}/products")]
+        public async Task<IActionResult> GetProductByCategoryId(int categoryId)
+        {
+            var products = await _productReposity.GetProductByCategoryId(categoryId);
+            return Ok(products);
+        }
         
+        //limit result
+        [HttpGet]
+        [Route("products/limit={limit}")]
+        public async Task<IActionResult> GetProducts(int limit)
+        {
+            var products = await _productReposity.GetProducts(limit);
+            return Ok(products);
+        }
         
+        [HttpPost]
+        [Route("products")]
+        public async Task<IActionResult> CreateProduct([FromBody] ProductCreateDto productCreateDto)
+        {
+            var product = await _productReposity.CreateProduct(productCreateDto);
+            return Ok(product);
+        }
     }
 }

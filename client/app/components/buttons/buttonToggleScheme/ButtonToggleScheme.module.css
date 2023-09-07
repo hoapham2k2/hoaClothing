@@ -1,0 +1,10 @@
+.button__wrapper {
+    background-color: transparent;
+    border: none;
+
+}
+
+.button__wrapper svg {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}

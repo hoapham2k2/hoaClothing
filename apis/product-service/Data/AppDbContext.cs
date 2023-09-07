@@ -13,6 +13,8 @@ public class AppDbContext: DbContext
     public DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
     
+    public DbSet<ImageUri> ImageUris { get; set; }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
@@ -26,6 +28,5 @@ public class AppDbContext: DbContext
             .HasOne(p => p.Category)
             .WithMany(p => p.Products)
             .HasForeignKey(p => p.CategoryId);
-
     }
 }
