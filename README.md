@@ -80,16 +80,4 @@
 <h2>
   Api client UI (swaggerUI)
 </h2>
-<img src="https://assets.pinterest.com/ext/embed.html?id=1407443627248666" alt="anh"/>
-
-
-<style>
-  .heading{
-    text-align: center;
-    text-transform: uppercase;
-  }
-  .title{
-    font-size: 20px;
-  }
-</style>
-```
+<img src="https://i.pinimg.com/originals/8b/ac/c2/8bacc2e952a31bc5fe999e3a4166be93.jpg" alt="anh"/>
