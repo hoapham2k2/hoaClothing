@@ -1,5 +1,5 @@
 <h1 class="heading">
-    Welcome to my project - HoaClothing ecommerce shop website
+ HoaClothing - an ecommerce shop website
 </h1>
 <div class="title">
     <p>
