@@ -10,102 +10,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4da80324-230a-4d96-bf19-3aee69b1afc3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/kubernetes-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AutoMapper/MappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/AuthController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dtos/UserDto/UserLoginDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dtos/UserDto/UserRegisterDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20230902185410_Initial.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/ServiceResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/AuthRepository/AuthRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/AuthRepository/IAuthRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/JwtRepository/IJwtRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/JwtRepository/JwtRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/RoleRepository/IRoleRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/RoleRepository/RoleRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/identity-service.sln.DotSettings.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/.idea/client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/AxiosInterceptors/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/components/buttons/buttonToggleScheme/ButtonToggleScheme.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/components/buttons/buttonToggleScheme/ButtonToggleScheme.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/components/footer/Footer.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/components/footer/Footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/components/header/Header.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/components/header/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/components/header/shopDropDownModal/ShopDropDownModal.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/components/header/shopDropDownModal/ShopDropDownModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/components/pageCarousel/PageCarousel.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/components/pageCarousel/PageCarousel.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/globals.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/page.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/app/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/next.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/public/next.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/public/vercel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../client/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/efCoreCommonOptions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/efCoreCommonOptions.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/efCoreDialogsState.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/efCoreDialogsState.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/identity-service.metadata.v7.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/identity-service.projects.v7.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/identity-service/DesignTimeBuild/.dtbcache.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/identity-service/FileContentIndex/a4d85d38-4145-4aaf-8410-f31cecec1447.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/identity-service/config/applicationhost.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/identity-service/v17/.futdcache.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/identity-service/v17/.suo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/AppDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230831192852_Initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230831192852_Initial.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230831193513_init01.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230831193513_init01.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20230902185410_Initial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230831194448_init02.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230831194448_init02.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230831195111_init04.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20230902193632_init01.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230831195111_init04.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20230902193632_init01.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230831195229_init05.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230831195229_init05.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/AppUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/AppUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/identity-service.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/identity-service.csproj.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/identity-service.sln" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Controllers/ProductController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Dtos/CategoryDto/CategoryReadDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Dtos/CategoryDto/CategoryReadDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Interfaces/ICategory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Interfaces/IProduct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/MappingProfiles/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/MappingProfiles/MappingProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/Dtos/OrderDto/OrderCreateDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/Dtos/OrderDto/OrderReadDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/Dtos/OrderItemDto/OrderItemCreateDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/Dtos/OrderItemDto/OrderItemReadDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/MappingProfile/MappingProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/Migrations/20230907151733_Initial.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/Migrations/20230907151733_Initial.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/Migrations/MyDbContextModelSnapshot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Azure.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Azure.Identity.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.Identity.Client.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/System.Memory.Data.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/System.Runtime.Caching.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product-service/Migrations/20230907151040_Initial.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product-service/Migrations/20230907151040_Initial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Dtos/ProductDto/ProductCreateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Dtos/ProductDto/ProductCreateDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Dtos/ProductDto/ProductReadDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Dtos/ProductDto/ProductReadDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230831095122_init.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230831095122_init.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230831190214_init02.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230831190214_init02.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230901070513_inti03.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230901070513_inti03.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230907055851_update-db-01.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230907055851_update-db-01.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230907060439_update-product-02.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230907060439_update-product-02.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../product-service/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Model/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Model/Category.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../product-service/Model/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Model/Product.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../product-service/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Repositories/CategoryRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Repositories/ProductRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-service/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/appsettings.Development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../product-service/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../product-service/product-service.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/product-service.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../etc/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../../etc/nginx/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,6 +220,7 @@
       <workItem from="1693910540417" duration="3185000" />
       <workItem from="1693916785336" duration="606000" />
       <workItem from="1693966094302" duration="3346000" />
+      <workItem from="1694098562023" duration="1513000" />
     </task>
     <servers />
   </component>

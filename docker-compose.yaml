@@ -14,7 +14,31 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - "mysql-db"
-      - "message-broker" 
+      - "message-broker"
+    ports:
+      - "1403:80"
+  order-service:
+    build:
+      context: ./apis/order-service
+      dockerfile: Dockerfile
+    depends_on:
+      - "mysql-db"
+      - "message-broker"
+      - "product-service" 
+  cart-service:
+    build: 
+      context: ./apis/cart-service
+      dockerfile: Dockerfile
+    depends_on:
+      - "mysql-db"
+      - "message-broker"
+  payment-service:
+    build:
+      context: ./apis/payment-service
+      dockerfile: Dockerfile
+    depends_on:
+      - "mysql-db"
+      - "message-broker"
   #for client web app
   client:
     build:

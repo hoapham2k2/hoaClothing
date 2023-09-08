@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace product_service.Model;
 
@@ -11,8 +12,10 @@ public class Product
     [Required]
     public string Name { get; set; }
     public string? Description { get; set; }
-    public decimal? OldPrice { get; set; }
-    public decimal Price { get; set; }
+    [Precision(10, 2)]
+    public double? OldPrice { get; set; }
+    [Precision(10, 2)]
+    public double Price { get; set; }
     [Required]
     [ForeignKey(nameof(Category))]
     public int CategoryId { get; set; }

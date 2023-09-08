@@ -23,4 +23,8 @@ public interface IProduct
     
     //update product
     Task<Product> UpdateProduct(int id, ProductUpdateDto productUpdateDto);
+    
+    // ----------> helper methods <----------
+    //check existing product
+    Task<bool> CheckExistingProduct<T>(T value);
 }

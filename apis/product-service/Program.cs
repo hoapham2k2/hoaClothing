@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen();
 
 //Add Entity Framework Core
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //for auto mapper
 var mapperConfig = new MapperConfiguration(mc =>

@@ -10,23 +10,10 @@ public class AppDbContext: DbContext
         
     }
 
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Product> Products { get; set; }
+    public DbSet<Category> Categories { get; set; } = null!;
+    public DbSet<Product> Products { get; set; } = null!;
     
-    public DbSet<ImageUri> ImageUris { get; set; }
+    public DbSet<ImageUri> ImageUris { get; set; } = null!;
     
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder
-            .Entity<Category>()
-            .HasMany(p => p.Products)
-            .WithOne(p => p.Category)
-            .HasForeignKey(p => p.CategoryId);
-        
-        modelBuilder
-            .Entity<Product>()
-            .HasOne(p => p.Category)
-            .WithMany(p => p.Products)
-            .HasForeignKey(p => p.CategoryId);
-    }
+    
 }

@@ -11,8 +11,8 @@ public class ProductReadDto
     [Required]
     public string Name { get; set; }
     public string? Description { get; set; }
-    public decimal? OldPrice { get; set; }
-    public decimal Price { get; set; }
+    public double? OldPrice { get; set; }
+    public double Price { get; set; }
     public List<ImageUri> Images { get; set; } = new List<ImageUri>();
     [Required]
     public int CategoryId { get; set; }

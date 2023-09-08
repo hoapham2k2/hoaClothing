@@ -10,11 +10,11 @@ public class ProductCreateDto
     
     public string? Description { get; set; }
     
-    public decimal? OldPrice { get; set; }
+    public double? OldPrice { get; set; }
     
     [Required]
     [Range(0.01, double.MaxValue)]
-    public decimal Price { get; set; }
+    public double Price { get; set; }
     
     [Required]
     public List<ImageUri> Images { get; set; } = new List<ImageUri>();

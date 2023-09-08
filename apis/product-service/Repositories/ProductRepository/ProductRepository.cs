@@ -91,7 +91,7 @@ public class ProductRepository : IProduct
 
     //------------------private method------------------
     // use Generic to check existing product by id or name
-    private async Task<bool> CheckExistingProduct<T>(T value)
+    public async Task<bool> CheckExistingProduct<T>(T value)
     {
         if (value == null)
             throw new ArgumentNullException(nameof(value));
