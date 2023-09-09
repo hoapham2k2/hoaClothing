@@ -6,23 +6,27 @@ namespace product_service.Interfaces;
 public interface IProduct
 {
     //get all products
-    Task<IEnumerable<Product>> GetProducts();
+    Task<ServiceResponse<IEnumerable<ProductReadDto>>> GetProducts();
     
     //get product by id
-    Task<Product?> GetProductById(int id);
+    Task<ServiceResponse<ProductReadDto>> GetProductById(int id);
     
     //get product by category id
-    Task<IEnumerable<Product>> GetProductByCategoryId(int categoryId);
+    Task<ServiceResponse<IEnumerable<ProductReadDto>>> GetProductByCategoryId(int categoryId);
     
     
     //create product
-    Task<Product> CreateProduct(ProductCreateDto productCreateDto);
+    Task<ServiceResponse<ProductReadDto>> CreateProduct(ProductCreateDto productCreateDto);
     
     //limit result
-    Task<IEnumerable<Product>> GetProducts(int limit);
+    Task<ServiceResponse<IEnumerable<ProductReadDto>>> GetProducts(int limit);
     
     //update product
-    Task<Product> UpdateProduct(int id, ProductUpdateDto productUpdateDto);
+    Task<ServiceResponse<ProductReadDto>> UpdateProduct(int id, ProductUpdateDto productUpdateDto);
+    
+    //delete product
+    Task<ServiceResponse<ProductReadDto>> DeleteProduct(int id);
+    
     
     // ----------> helper methods <----------
     //check existing product

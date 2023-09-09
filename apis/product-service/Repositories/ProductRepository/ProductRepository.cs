@@ -19,74 +19,119 @@ public class ProductRepository : IProduct
         _mapper = mapper;
         _categoryRepository = categoryRepository;
     }
-
-    public async Task<IEnumerable<Product>> GetProducts()
+    
+    public async Task<ServiceResponse<IEnumerable<ProductReadDto>>> GetProducts()
     {
-        string sqlCommand = "Select * from Products";
-        return await _context.Products.FromSqlRaw(sqlCommand).ToListAsync();
+        string sqlCommand = "SELECT * FROM Products";
+        var products = await _context.Products.FromSqlRaw(sqlCommand).ToListAsync();
+        var productReadDtos = _mapper.Map<IEnumerable<ProductReadDto>>(products);
+        return new ServiceResponse<IEnumerable<ProductReadDto>>
+        {
+            Data = productReadDtos
+        };
     }
 
-    public async Task<Product?> GetProductById(int id)
+    public async Task<ServiceResponse<ProductReadDto>> GetProductById(int id)
     {
-        if (await CheckExistingProduct(id) is false)
-            throw new ArgumentNullException(nameof(id) + " does not exist");
-        return await _context.Products.FindAsync(id);
-    }
-
-    public async Task<IEnumerable<Product>> GetProductByCategoryId(int categoryId)
-    {
-        if (await _categoryRepository.CheckExistingCategory(categoryId) is false)
-            throw new ArgumentNullException(nameof(categoryId) + " does not exist");
-        string sqlCommand = $"Select * from Products where CategoryId = {categoryId}";
-        return await _context.Products.FromSqlRaw(sqlCommand).ToListAsync();
-    }
-
-    public async Task<Product> CreateProduct(ProductCreateDto productCreateDto)
-    {
-        //check only category id is valid
-        if (await _categoryRepository.CheckExistingCategory(productCreateDto.CategoryId) is false)
-            throw new ArgumentNullException(nameof(productCreateDto.CategoryId) + " does not exist");
-        //check product name is unique
-        if (await CheckExistingProduct(productCreateDto.Name) is true)
-            throw new ArgumentException(nameof(productCreateDto.Name) + " already exists");
+        string sqlCommand = "SELECT * FROM Products WHERE Id = {0}";
+        var product = await _context.Products.FromSqlRaw(sqlCommand, id).FirstOrDefaultAsync();
+        var productReadDto = _mapper.Map<ProductReadDto>(product);
+        return new ServiceResponse<ProductReadDto>
+        {
+            Data = productReadDto
+        };
         
+    }
+
+    public async Task<ServiceResponse<IEnumerable<ProductReadDto>>> GetProductByCategoryId(int categoryId)
+    {
+        string sqlCommand = "SELECT * FROM Products WHERE CategoryId = {0}";
+        var products = await _context.Products.FromSqlRaw(sqlCommand, categoryId).ToListAsync();
+        var productReadDtos = _mapper.Map<IEnumerable<ProductReadDto>>(products);
+        return new ServiceResponse<IEnumerable<ProductReadDto>>
+        {
+            Data = productReadDtos
+        };
+        
+    }
+
+    public async Task<ServiceResponse<ProductReadDto>> CreateProduct(ProductCreateDto productCreateDto)
+    {
         var product = _mapper.Map<Product>(productCreateDto);
         await _context.Products.AddAsync(product);
         await _context.SaveChangesAsync();
-        return product;
-        
+        var productReadDto = _mapper.Map<ProductReadDto>(product);
+        return new ServiceResponse<ProductReadDto>
+        {
+            Data = productReadDto
+        };
     }
 
-    public async Task<IEnumerable<Product>> GetProducts(int limit)
+    public async Task<ServiceResponse<IEnumerable<ProductReadDto>>> GetProducts(int limit)
     {
-        //check limit is valid
-        if (limit <= 0)
-            throw new ArgumentException(nameof(limit) + " must be greater than 0");
-        string sqlCommand = $"Select * from Products limit {limit}";
-        return await _context.Products.FromSqlRaw(sqlCommand).ToListAsync();
+        // sử dụng sql server để pagination
+        string sqlCommand = "SELECT * FROM Products ORDER BY Id OFFSET 0 ROWS FETCH NEXT {0} ROWS ONLY";
+        var products = await _context.Products.FromSqlRaw(sqlCommand, limit).ToListAsync();
+        var productReadDtos = _mapper.Map<IEnumerable<ProductReadDto>>(products);
+        return new ServiceResponse<IEnumerable<ProductReadDto>>
+        {
+            Data = productReadDtos
+        };
     }
 
-    public async Task<Product> UpdateProduct(int id, ProductUpdateDto productUpdateDto)
+    public async Task<ServiceResponse<ProductReadDto>> UpdateProduct(int id, ProductUpdateDto productUpdateDto)
     {
-        //check product id is valid
-        if (await CheckExistingProduct(id) is false)
-            throw new ArgumentNullException(nameof(id) + " does not exist");
-        //check category id is valid
-        if (await _categoryRepository.CheckExistingCategory(productUpdateDto.CategoryId) is false)
-            throw new ArgumentNullException(nameof(productUpdateDto.CategoryId) + " does not exist");
-        //check product name is unique
-        if (await CheckExistingProduct(productUpdateDto.Name) is true)
-            throw new ArgumentException(nameof(productUpdateDto.Name) + " already exists");
+        // check if product exist by id
+        if(!await CheckExistingProduct(id))
+            return new ServiceResponse<ProductReadDto>
+            {
+                Messages = new List<string> {"Product not found"},
+            };
+        // check if product exist by name
+        if(await CheckExistingProduct(productUpdateDto.Name))
+            return new ServiceResponse<ProductReadDto>
+            {
+                Messages = new List<string> {"Product name already exist"},
+            };
         
-        var product = await _context.Products.FindAsync(id);
+        // mapping productUpdateDto to product
+        var product = _mapper.Map<Product>(productUpdateDto);
         
-        //update product
-        var productUpdate = _mapper.Map(productUpdateDto, product);
-        _context.Products.Update(productUpdate ?? throw new InvalidOperationException());
+        // update product
+        _context.Products.Update(product);
         await _context.SaveChangesAsync();
         
-        return productUpdate;
+        // mapping product to productReadDto
+        var productReadDto = _mapper.Map<ProductReadDto>(product);
+        return new ServiceResponse<ProductReadDto>
+        {
+            Data = productReadDto
+        };
     }
+
+    public async Task<ServiceResponse<ProductReadDto>> DeleteProduct(int id)
+    {
+        string sqlCommand = "SELECT * FROM Products WHERE Id = {0}";
+        var product = await _context.Products.FromSqlRaw(sqlCommand, id).FirstOrDefaultAsync();
+        if (product == null)
+            return new ServiceResponse<ProductReadDto>
+            {
+                Messages = new List<string> {"Product not found"},
+            };
+        
+        _context.Products.Remove(product);
+        await _context.SaveChangesAsync();
+        var productReadDto = _mapper.Map<ProductReadDto>(product);
+        
+        return new ServiceResponse<ProductReadDto>
+        {
+            Data = productReadDto
+        };
+        
+    }
+
+    
+    
 
 
     //------------------private method------------------

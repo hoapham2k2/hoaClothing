@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="product-db@localhost" uuid="64e39fc4-21a5-4a40-90c3-7f3907df8781">
-      <driver-ref>mysql.8</driver-ref>
+    <data-source source="LOCAL" name="Microsoft SQL Server (JetBrains)" uuid="073b017c-67b6-4421-b2fb-830366ae2b00">
+      <driver-ref>sqlserver.jb</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/product-db</jdbc-url>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Data Source=localhost,3307; Database=product-db; User Id=sa; Password=Password123; Persist Security Info=True; Connect Timeout=300; TrustServerCertificate=True; MultipleActiveResultSets=True</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

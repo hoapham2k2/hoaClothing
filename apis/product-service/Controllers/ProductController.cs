@@ -73,5 +73,21 @@ namespace product_service.Controllers
             var product = await _productReposity.CreateProduct(productCreateDto);
             return Ok(product);
         }
+        
+        [HttpPut]
+        [Route("products/{id}")]
+        public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductUpdateDto productUpdateDto)
+        {
+            var product = await _productReposity.UpdateProduct(id, productUpdateDto);
+            return Ok(product);
+        }
+        
+        [HttpDelete]
+        [Route("products/{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var product = await _productReposity.DeleteProduct(id);
+            return Ok(product);
+        }
     }
 }
