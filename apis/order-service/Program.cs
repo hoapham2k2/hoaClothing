@@ -8,6 +8,7 @@ using order_service.Data;
 using order_service.MappingProfile;
 using order_service.Repositories.OrderItemRepository;
 using order_service.Repositories.OrderReposity;
+using order_service.SynchnorousServiceRequest.auth_service;
 using order_service.SynchnorousServiceRequest.product_service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -70,14 +71,21 @@ builder.Services.AddAuthorization(
 
 //for inversion of control container (IoC)
 builder.Services.AddScoped<IHttpSyncProduct, HttpSyncProduct>();
+builder.Services.AddScoped<IHttpSyncAuth, HttpSyncAuth>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
 
-// đăng ký HttpClient để gọi sang product service
+// đăng ký HttpClient
 builder.Services.AddHttpClient("ProductService", client =>
 {
     client.BaseAddress = new Uri($"{builder.Configuration["product_service_url"]}");
 });
+
+builder.Services.AddHttpClient("AuthService", client =>
+{
+    client.BaseAddress = new Uri($"{builder.Configuration["auth_service_url"]}");
+});
+
 
 var app = builder.Build();
 

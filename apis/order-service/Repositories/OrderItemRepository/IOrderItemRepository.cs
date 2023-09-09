@@ -5,10 +5,8 @@ namespace order_service.Repositories.OrderItemRepository;
 
 public interface IOrderItemRepository
 {
-    //get all order items by order id
     Task<ServiceRespone<IEnumerable<OrderItemReadDto>>> GetAllOrderItemsByOrderId(int orderId);
     
-    //get order item by order item id
     Task<ServiceRespone<OrderItemReadDto>> GetOrderItemById(int id);
     
     //create new order item

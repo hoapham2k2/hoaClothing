@@ -9,7 +9,10 @@ public interface IOrderRepository
     Task<ServiceRespone<IEnumerable<OrderReadDto>>> GetAllOrders();
     
     //get order by order id
-    Task<ServiceRespone<OrderReadDto>> GetOrderById(int id);
+    Task<ServiceRespone<OrderReadDto>> GetOrderByOrderId(int orderId);
+    
+    //get order by user id
+    Task<ServiceRespone<IEnumerable<OrderReadDto>>> GetOrderByUserId(int userId);
     
     //create new order
     Task<ServiceRespone<OrderReadDto>> CreateOrder(OrderCreateDto orderCreateDto);

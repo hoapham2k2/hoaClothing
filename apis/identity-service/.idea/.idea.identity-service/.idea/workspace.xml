@@ -10,56 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4da80324-230a-4d96-bf19-3aee69b1afc3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../order-service/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/Dtos/OrderDto/OrderCreateDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/Dtos/OrderDto/OrderReadDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/Dtos/OrderItemDto/OrderItemCreateDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/Dtos/OrderItemDto/OrderItemReadDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/MappingProfile/MappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/Migrations/20230907151733_Initial.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/Migrations/20230907151733_Initial.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/Migrations/MyDbContextModelSnapshot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Azure.Core.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Azure.Identity.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.Identity.Client.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/System.Memory.Data.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/System.Runtime.Caching.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product-service/Migrations/20230907151040_Initial.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../product-service/Migrations/20230907151040_Initial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.identity-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Dtos/ProductDto/ProductCreateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Dtos/ProductDto/ProductCreateDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Dtos/ProductDto/ProductReadDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Dtos/ProductDto/ProductReadDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230831095122_init.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230831095122_init.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230831190214_init02.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230831190214_init02.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230901070513_inti03.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230901070513_inti03.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230907055851_update-db-01.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230907055851_update-db-01.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230907060439_update-product-02.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/20230907060439_update-product-02.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Model/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Model/Product.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-service/product-service.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../product-service/product-service.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/SynchnorousServiceRequest/auth-service/HttpSyncAuth.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/SynchnorousServiceRequest/auth-service/IHttpSyncAuth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/AuthRepository/AuthRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/AuthRepository/AuthRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/AuthRepository/IAuthRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/AuthRepository/IAuthRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/Controllers/OrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/Controllers/OrderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/Dtos/OrderDto/OrderCreateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/Dtos/OrderDto/OrderCreateDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/Dtos/OrderDto/OrderReadDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/Dtos/OrderDto/OrderReadDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/Models/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/Models/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/Repositories/OrderItemRepository/IOrderItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/Repositories/OrderItemRepository/IOrderItemRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/Repositories/OrderItemRepository/OrderItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/Repositories/OrderItemRepository/OrderItemRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/Repositories/OrderRepository/IOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/Repositories/OrderRepository/IOrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/Repositories/OrderRepository/OrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/Repositories/OrderRepository/OrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/order-service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/order-service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/order-service.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/bin/Debug/net7.0/order-service.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/obj/Debug/net7.0/order-service.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/obj/Debug/net7.0/order-service.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/obj/Debug/net7.0/order-service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/obj/Debug/net7.0/order-service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/obj/Debug/net7.0/order-service.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/obj/Debug/net7.0/order-service.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/obj/Debug/net7.0/ref/order-service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/obj/Debug/net7.0/ref/order-service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/obj/Debug/net7.0/refint/order-service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/obj/Debug/net7.0/refint/order-service.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,6 +194,7 @@
       <workItem from="1693916785336" duration="606000" />
       <workItem from="1693966094302" duration="3346000" />
       <workItem from="1694098562023" duration="1513000" />
+      <workItem from="1694264346580" duration="221000" />
     </task>
     <servers />
   </component>

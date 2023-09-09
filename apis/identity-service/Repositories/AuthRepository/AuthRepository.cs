@@ -85,7 +85,12 @@ public class AuthRepository : IAuthRepository
         serviceResponse.Data = _jwtRepository.GenerateJWTToken(user);
         return serviceResponse;
     }
-    
+
+    public async Task<bool> CheckUserExist(int userId)
+    {
+        return await _userManager.FindByIdAsync(userId.ToString()) != null;
+    }
+
     // ------ Helper methods ------
     
     private async Task<bool> CheckIfUserExists(string? username = null, string? email = null)
