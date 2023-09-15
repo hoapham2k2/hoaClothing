@@ -4,6 +4,7 @@ using product_service.Data;
 using product_service.Dtos;
 using product_service.Interfaces;
 using product_service.Model;
+using product_service.Repositories.ProductImageRepository;
 
 namespace product_service.Repositories;
 
@@ -12,23 +13,36 @@ public class ProductRepository : IProduct
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
     private readonly ICategory _categoryRepository;
+    private readonly IProductImageRepository _productImageRepository;
 
-    public ProductRepository(AppDbContext context, IMapper mapper, ICategory categoryRepository)
+    public ProductRepository(AppDbContext context, IMapper mapper, ICategory categoryRepository, IProductImageRepository productImageRepository)
     {
         _context = context;
         _mapper = mapper;
         _categoryRepository = categoryRepository;
+        _productImageRepository = productImageRepository;
     }
-    
+
+   
+
     public async Task<ServiceResponse<IEnumerable<ProductReadDto>>> GetProducts()
     {
         string sqlCommand = "SELECT * FROM Products";
         var products = await _context.Products.FromSqlRaw(sqlCommand).ToListAsync();
         var productReadDtos = _mapper.Map<IEnumerable<ProductReadDto>>(products);
+        
+        // get images for each product
+        foreach (var productReadDto in productReadDtos)
+        {
+            var imageUris = await _productImageRepository.GetProductImagesByProductId(productReadDto.Id);
+            productReadDto.Images = imageUris.ToList();
+        }
+        
         return new ServiceResponse<IEnumerable<ProductReadDto>>
         {
-            Data = productReadDtos
+            Data = productReadDtos ?? new List<ProductReadDto>()
         };
+        
     }
 
     public async Task<ServiceResponse<ProductReadDto>> GetProductById(int id)
@@ -36,9 +50,14 @@ public class ProductRepository : IProduct
         string sqlCommand = "SELECT * FROM Products WHERE Id = {0}";
         var product = await _context.Products.FromSqlRaw(sqlCommand, id).FirstOrDefaultAsync();
         var productReadDto = _mapper.Map<ProductReadDto>(product);
+        
+        //get images for product
+        var imageUris = await _productImageRepository.GetProductImagesByProductId(productReadDto.Id);
+        productReadDto.Images = imageUris.ToList();
+        
         return new ServiceResponse<ProductReadDto>
         {
-            Data = productReadDto
+            Data = productReadDto ?? new ProductReadDto()
         };
         
     }
@@ -130,8 +149,25 @@ public class ProductRepository : IProduct
         
     }
 
-    
-    
+    public async Task<ServiceResponse<IEnumerable<ProductReadDto>>> GetRandomProducts(int limit)
+    {
+        string sqlCommand = "SELECT * FROM Products ORDER BY NEWID() OFFSET 0 ROWS FETCH NEXT {0} ROWS ONLY";
+        var products = await _context.Products.FromSqlRaw(sqlCommand, limit).ToListAsync();
+        
+        var productReadDtos = _mapper.Map<IEnumerable<ProductReadDto>>(products);
+        
+        // get images for each product
+        foreach (var productReadDto in productReadDtos)
+        {
+            var imageUris = await _productImageRepository.GetProductImagesByProductId(productReadDto.Id);
+            productReadDto.Images = imageUris.ToList();
+        }
+        
+        return new ServiceResponse<IEnumerable<ProductReadDto>>
+        {
+            Data = productReadDtos ?? new List<ProductReadDto>()
+        };
+    }
 
 
     //------------------private method------------------

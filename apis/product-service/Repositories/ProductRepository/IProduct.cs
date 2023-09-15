@@ -5,6 +5,7 @@ namespace product_service.Interfaces;
 
 public interface IProduct
 {
+    
     //get all products
     Task<ServiceResponse<IEnumerable<ProductReadDto>>> GetProducts();
     
@@ -26,6 +27,9 @@ public interface IProduct
     
     //delete product
     Task<ServiceResponse<ProductReadDto>> DeleteProduct(int id);
+    
+    //get random products
+    Task<ServiceResponse<IEnumerable<ProductReadDto>>> GetRandomProducts(int limit);
     
     
     // ----------> helper methods <----------

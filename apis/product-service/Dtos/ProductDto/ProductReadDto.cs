@@ -13,7 +13,7 @@ public class ProductReadDto
     public string? Description { get; set; }
     public double? OldPrice { get; set; }
     public double Price { get; set; }
-    public List<ImageUri> Images { get; set; } = new List<ImageUri>();
+    public List<ImageUriReadDto> Images { get; set; } = new List<ImageUriReadDto>();
     [Required]
     public int CategoryId { get; set; }
 }

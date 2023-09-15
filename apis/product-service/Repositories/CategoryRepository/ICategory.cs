@@ -9,4 +9,7 @@ public interface ICategory
     Task<IEnumerable<Category>> GetCategories();  
     Task<Category> CreateCategory(CategoryCreateDto categoryCreateDto);
     
+    //get category by id
+    Task<ServiceResponse<CategoryReadDto>> GetCategoryById(int id);
+    
 }

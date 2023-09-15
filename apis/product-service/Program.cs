@@ -8,6 +8,7 @@ using product_service.Data;
 using product_service.Interfaces;
 using product_service.MappingProfiles;
 using product_service.Repositories;
+using product_service.Repositories.ProductImageRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +70,18 @@ builder.Services.AddAuthorization(
 //for inversion of control container (IoC)
 builder.Services.AddScoped<IProduct, ProductRepository>();
 builder.Services.AddScoped<ICategory, CategoryRepository>();
+builder.Services.AddScoped<IProductImageRepository, ProductImageRepository>();
+
+//for CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 
 
 var app = builder.Build();
@@ -79,6 +92,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 

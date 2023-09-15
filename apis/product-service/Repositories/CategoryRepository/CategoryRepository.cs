@@ -55,8 +55,21 @@ public class CategoryRepository : ICategory
         await _context.SaveChangesAsync();
         return category;
     }
-    
-    
-    
-    
+
+    public async Task<ServiceResponse<CategoryReadDto>> GetCategoryById(int id)
+    {
+        var sqlCommand = "SELECT * FROM Categories WHERE Id = {0}";
+        var category = await _context.Categories.FromSqlRaw(sqlCommand, id).FirstOrDefaultAsync();
+        if (category == null)
+            return new ServiceResponse<CategoryReadDto>
+            {
+                Messages = new List<string> {"Category not found"},
+            };
+        var categoryReadDto = _mapper.Map<CategoryReadDto>(category);
+        return new ServiceResponse<CategoryReadDto>
+        {
+            Data = categoryReadDto
+        };
+        
+    }
 }
